@@ -1,0 +1,409 @@
+/**
+ * Copyright (c) 2014, Tidepool Project
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the associated License, which is identical to the BSD 2-Clause
+ * License as published by the Open Source Initiative at opensource.org.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the License for more details.
+ *
+ * You should have received a copy of the License along with this program; if
+ * not, you can obtain one from Tidepool Project at tidepool.org.
+ */
+
+// Layout
+// ====================================
+
+@Navbar-height: 60px;
+
+.Navbar {
+  display: flex;
+  height: @Navbar-height;
+}
+
+@Navbar-logoHeight: 40px;
+
+.Navbar-logoSection {
+  width: @Navbar-logoHeight;
+}
+
+.Navbar-menuSection {
+  // Magic number width: should contain whole menu,
+  // and put some space between menu an patient section
+  width: 330px;
+
+  padding: 0;
+  // Align child items to the right (flex-end)
+  // and to the top (default)
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Navbar-patientSection {
+  // Use remaining space
+  flex-grow: 1;
+
+  // Align child items to the right (flex-end)
+  // and center vertically
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  .patientcard {
+    padding: 0px;
+
+    .icon-face-standin {
+      color: @gray-darker;
+    }
+  }
+}
+
+// Logo section
+// ====================================
+
+.Navbar-logo {
+  display: block;
+  background-image: url('images/blip-logo-80x80.png');
+  background-repeat: no-repeat;
+  background-size: @Navbar-logoHeight;
+  height: @Navbar-logoHeight;
+}
+
+// Buttons, icons, labels
+// ====================================
+
+@Navbar-iconSize: 28px;
+
+.Navbar-icon {
+  width: @Navbar-iconSize;
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+@Navbar-buttonHeight: 20px;
+
+.Navbar-button {
+  font-size: 14px;
+  line-height: @Navbar-buttonHeight;
+  height: @Navbar-buttonHeight;
+
+  color: @gray-dark;
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: @blue-green-light;
+    text-decoration: none;
+  }
+}
+
+.Navbar-button--withLeftLabelAndArrow {
+  // No idea why, but this makes the button keep correct height
+  display: flex;
+  margin-right: 8px;
+}
+
+.Navbar-logged {
+  font-size: 14px;
+  float: left;
+  padding: 0px 5px;
+}
+
+.Navbar-label {
+  color: @gray-dark;
+
+  .Navbar-button--blueBg:hover &,
+  .Navbar-button--blueBg:focus &,
+  .Navbar-button--blueBg:active & {
+    background-color: @blue-green-light;
+  }
+}
+
+.Navbar-button--patient {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.Navbar-label--left {
+  padding-left: 20px;
+  padding-right: 5px;
+}
+
+// http://cssarrowplease.com/
+.Navbar-label--left.Navbar-label--withArrow {
+  position: relative;
+  margin-right: @Navbar-buttonHeight/2;
+
+  &:after {
+  	left: 100%;
+  	top: 50%;
+  	border: solid transparent;
+  	content: " ";
+  	height: 0;
+  	width: 0;
+  	position: absolute;
+  	pointer-events: none;
+	  border-left-color: @gray-dark;
+  	border-width: @Navbar-buttonHeight/2;
+  	margin-top: -@Navbar-buttonHeight/2;
+  }
+
+  .Navbar-button:hover &:after,
+  .Navbar-button:focus &:after,
+  .Navbar-button:active &:after {
+    background-color: @blue-green-light;
+  }
+
+  .Navbar-button--blueBg:hover  &:after,
+  .Navbar-button--blueBg:focus  &:after,
+  .Navbar-button--blueBg:active  &:after {
+    border-left-color: @blue-green-light;
+  }
+}
+
+.Navbar-button--blueBg {
+  .Navbar-label {
+    background-color: @blue-green;
+  }
+  .Navbar-label--left.Navbar-label--withArrow {
+    &:after {
+      border-left-color: @blue-green;
+    }
+  }
+}
+
+.Navbar-button--blue {
+  color: @blue-green;
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: @blue-green-light;
+    text-decoration: none;
+  }
+}
+
+// Menu section
+// ====================================
+
+.Navbar-menuSection {
+  list-style: none;
+  vertical-align: top;
+}
+
+
+.Navbar-loggedInAs {
+  // Everything inside the label needs to have
+  // so it aligns correctly with the text that has "overflow ellipsis"
+  // Note: setting "max-width" triggers the ellipsis
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  margin-right: 5px;
+}
+
+.Navbar-userName {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 140px;
+}
+
+.Navbar-menuItem {
+  &:hover,
+  &:focus,
+  &:active {
+    color: @blue-green-light;
+  }
+}
+
+.Navbar-menuItem .Navbar-icon {
+  padding-left: 2px;
+  vertical-align: top;
+}
+
+// Patient section
+// ====================================
+
+.Navbar-patientName {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  max-width: 180px;
+}
+
+@Navbar-patientPictureSize: 60px;
+
+.Navbar-patientPicture {
+  background-image: url('images/profile-120x120.png');
+  background-repeat: no-repeat;
+  background-size: @Navbar-patientPictureSize;
+  width: @Navbar-patientPictureSize;
+  height: @Navbar-patientPictureSize;
+}
+
+.Navbar-uploadButton {
+  margin-left: 5px;
+
+  // Magic number: when upload button is hidden, keep layout of items
+  // Set this to whatever the width is of the icon + "Upload data" label
+  min-width: 112px;
+}
+
+.Navbar-uploadLabel {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.Navbar-selected {
+  > .Navbar-icon {
+    color: @blue-green;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: @blue-green;
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: @blue-green;
+  }
+
+  .Navbar-logged {
+    color: @blue-green;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: @blue-green;
+    }
+  }
+}
+
+.patientcard-actions--highlight > .patientcard-icon {
+  color: @blue-green;
+}
+
+.patientcard-icon {
+  color: @gray-dark;
+  font-size: 14px;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: @gray-darkest;
+  }
+}
+
+.patientcard-icon--highlight:hover {
+  color: @blue-green-light;
+}
+
+.Navbar-menuDropdown {
+  border: 1px solid @gray-light;
+  cursor: default;
+  position: absolute;
+  background: white;
+  right: 0px;
+  z-index: 100;
+  width: 200px;
+  top: 25px;
+
+  > ul {
+    list-style: none;
+    padding: 0 10px;
+
+    > li {
+      padding: 10px 0;
+    }
+
+    > li:last-child {
+      padding-top: 0px;
+      padding-bottom: 10px;
+    }
+  }
+}
+
+.Navbar-menuDropdown:after,
+.Navbar-menuDropdown:before {
+	position: absolute;
+  top: -8px;
+  right: 14px;
+  display: inline-block;
+  border: solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #eee;
+  border-left: 7px solid transparent;
+  border-bottom-color: white;
+  content: '';
+  height: 0;
+  width: 0;
+}
+
+.Navbar-menuDropdown:before {
+  top: -14px;
+  border-color: rgba(230, 230, 229, 0);
+  border-bottom-color: @gray-light;
+  border-width: 7px;
+  margin-left: -7px;
+}
+
+.Navbar-dropdownIcon {
+  position: relative;
+}
+
+.Navbar-menuDropdown-title {
+  border-bottom: 1px solid rgb(218, 218, 218);
+  padding: 10px 0;
+  font-size: 14px;
+  color: @gray-darker;
+  text-decoration: none;
+}
+
+.Navbar-menuDropdown-hide {
+  display: none;
+}
+
+.Navbar-dropdownIcon-show {
+  color: @blue-green-light;
+}
+
+.Navbar-dropdownIcon {
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: @blue-green-light;
+  }
+}
+
+.Navbar-dropdownIcon-current {
+  color: @blue-green;
+}
+
+.Navbar-icon-down {
+  font-size: 5px;
+  float: left;
+}
+
+.Navbar-icon-profile {
+  float: left;
+}
+
+.Navbar-menuText {
+  padding-left: @spacing-tiny;
+}

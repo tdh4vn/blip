@@ -1,0 +1,141 @@
+/**
+ * Copyright (c) 2014, Tidepool Project
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the associated License, which is identical to the BSD 2-Clause
+ * License as published by the Open Source Initiative at opensource.org.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the License for more details.
+ *
+ * You should have received a copy of the License along with this program; if
+ * not, you can obtain one from Tidepool Project at tidepool.org.
+ */
+
+@btn-border-size:  2px;
+
+// Base button
+// ====================================
+
+.btn,
+a.btn {
+  display: inline-block;
+  margin: 0;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  white-space: nowrap;
+  background-image: none;
+
+  border: 1px solid @gray-dark;
+  border-radius: 0px;
+
+  font-size: inherit;
+  line-height: (1.5*@spacing-base) - 2*@btn-border-size;
+  padding: 0 (@spacing-base - 2*@btn-border-size);
+
+  font-weight: bold;
+
+  &:hover,
+  &:focus {
+    outline: 0;
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    outline: 0;
+    background-image: none;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+    pointer-events: none; // Future-proof disabling of clicks
+    opacity: .65;
+  }
+}
+
+// Button styles
+// ====================================
+
+// Main action button style
+.btn-primary,
+a.btn-primary {
+  background-color: @blue-green;
+  border-color: @blue-green;
+  color: #fff;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: @blue-green-light;
+    border-color: @blue-green-light;
+  }
+}
+
+.btn-secondary,
+a.btn-secondary {
+  font-weight: normal;
+  color: @gray-dark;
+  background: none;
+  border-color: transparent;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
+    color: @blue-green-light;
+  }
+}
+
+.btn-tertiary,
+a.btn-tertiary {
+  background-color: #fff;
+  border-color: @blue-green;
+  color: @blue-green;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: @blue-green-light;
+    color: @blue-green-light;
+  }
+}
+
+.btn-chart,
+a.btn-chart {
+  font-weight: normal;
+  background-color: #fff;
+  border-color: fade(@gray-blue, 15%);
+  color: @gray-blue;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: fade(@blue-green-light, 50%);
+    border-color: fade(@gray-blue, 25%);
+  }
+}
+
+.btn-chart-control,
+a.btn-chart-control {
+  font-weight: normal;
+  background-color: @light-blue;
+  color: @gray-blue;
+  border: none;
+  margin: 0 @spacing-tiny;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: fade(@blue-green-light, 50%);
+  }
+
+  &.active {
+    background-color: @gray-dark;
+    color: #fff;
+  }
+}

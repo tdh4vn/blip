@@ -1,0 +1,263 @@
+/**
+ * Copyright (c) 2014, Tidepool Project
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the associated License, which is identical to the BSD 2-Clause
+ * License as published by the Open Source Initiative at opensource.org.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the License for more details.
+ *
+ * You should have received a copy of the License along with this program; if
+ * not, you can obtain one from Tidepool Project at tidepool.org.
+ */
+
+.patient-data {
+  margin-bottom: @spacing-large;
+}
+
+// Subnav
+// ====================================
+
+@patient-data-subnav-vertical-padding:    @spacing-small;
+@patient-data-subnav-horizontal-padding:  @spacing-small;
+
+.patient-data-subnav-inner {
+  color: #fff;
+  background-color: @gray-dark;
+
+  padding: @patient-data-subnav-vertical-padding 0;
+}
+
+.patient-data-subnav-text {
+  display: inline-block;
+
+  text-align: center;
+}
+
+.patient-data-subnav-dates-daily {
+  width: 150px;
+}
+
+.patient-data-subnav-dates-weekly {
+  width: 220px;
+}
+
+.patient-data-subnav-dates-modal {
+  width: 275px;
+}
+
+.patient-data-subnav a {
+  display: inline-block;
+  padding: 0 @patient-data-subnav-horizontal-padding;
+  &.patient-data-icon {
+    padding: 0;
+  }
+
+  color: #fff;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: @gray-darkest;
+    text-decoration: none;
+  }
+
+  &:active,
+  &.patient-data-subnav-disabled {
+    color: @gray;
+    cursor: default;
+  }
+
+  // TODO: this should be removed when we support navigation across the settings history
+  &.patient-data-subnav-hidden {
+    display: none;
+  }
+}
+
+.patient-data-subnav a.patient-data-subnav-active {
+  font-weight: bold;
+}
+
+.patient-data-footer-left a.patient-data-subnav-active {
+  font-weight: bold;
+}
+
+.patient-data-subnav-center {
+  text-align: center;
+}
+
+.patient-data-subnav-left {
+  text-align: left;
+}
+
+.patient-data-subnav-right {
+  text-align: right;
+}
+
+.patient-data-subnav-right-label {
+  float: right;
+}
+
+// Content
+// ====================================
+
+@patient-data-chart-height:             500px;
+
+.patient-data-content-inner {
+  background-color: #fff;
+
+  // Bug with message:
+  // If no padding top is set, message top margin will "push" this white block
+  // down, instead of "stretching" it
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.patient-data-content {
+  min-height: @patient-data-chart-height;
+}
+
+// Chart
+// ====================================
+
+.patient-data-chart {
+  width: 100%;
+  height: 590px;
+}
+
+.patient-data-chart-growing {
+  width: 100%;
+}
+
+.patient-data-chart-modal {
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+}
+
+@media print {
+  .patient-data-chart {
+    overflow-y: inherit;
+  }
+
+  i {
+      display: none;
+  }
+}
+
+
+// Messages
+// ====================================
+
+@patient-data-message-breakpoint: @screen-lg-min;
+
+.patient-data-message {
+  text-align: center;
+  padding: 30px @spacing-small;
+  margin-top: 80px;
+
+  @media(min-width: @patient-data-message-breakpoint) {
+    margin-left: auto;
+    margin-right: auto;
+    width: 480px;
+  }
+
+  & p {
+    margin-top: @spacing-base;
+    margin-bottom: @spacing-base;
+  }
+}
+
+.patient-data-loading-message {
+  margin-top: 0px;
+  font-weight: bold;
+}
+
+.patient-data-loading-image {
+  display: block;
+  margin: 80px auto 0;
+  padding-top: 130px;
+  width: 160px;
+}
+
+.patient-data-message-no-data {
+  > a {
+    font-size: 40px;
+    padding: 40px;
+    display: inline-block;
+  }
+}
+
+// Footer
+// ====================================
+
+@patient-data-footer-vertical-padding:    @spacing-small;
+@patient-data-footer-horizontal-padding:  @spacing-small;
+
+.patient-data-footer-inner {
+  padding-left: 0;
+  padding-right: 0;
+  display: flex;
+
+  min-height: (2*@spacing-small + @line-height-base);
+}
+
+.patient-data-footer a {
+  color: @gray-darkest;
+  display: inline-block;
+  padding: @patient-data-footer-vertical-padding @patient-data-footer-horizontal-padding;
+
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: @gray-darkest;
+    text-decoration: underline;
+  }
+
+  &:active,
+  &.patient-data-footer-disabled {
+    color: @gray;
+    cursor: default;
+  }
+}
+
+.patient-data-footer-left {
+  text-align: left;
+  padding: @spacing-small;
+}
+
+.patient-data-footer-right {
+  text-align: right;
+  flex-grow: 2;
+}
+
+.footer-right-options {
+  display: flex;
+  justify-content: flex-end;
+
+  label {
+    padding: 15px 12px 0 10px;
+    cursor: pointer;
+  }
+}
+
+@media print {
+  .patient-data-subnav-inner {
+    color: gray;
+    background-color: transparent;
+  }
+
+  .patient-data-subnav > div:last-child {
+    display: none;
+  }
+
+  .patient-data-footer-outer {
+    display: none;
+    a {
+      display: none;
+    }
+  }
+}

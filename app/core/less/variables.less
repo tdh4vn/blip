@@ -1,0 +1,119 @@
+/**
+ * Copyright (c) 2014, Tidepool Project
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the associated License, which is identical to the BSD 2-Clause
+ * License as published by the Open Source Initiative at opensource.org.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the License for more details.
+ *
+ * You should have received a copy of the License along with this program; if
+ * not, you can obtain one from Tidepool Project at tidepool.org.
+ */
+
+// Colors
+// ====================================
+
+@gray-darkest:           #636363; // Hover state for links, buttons
+@gray-darker:            #727375; // Text on white background
+@gray-dark:              #989897; // Nav links, buttons, tabs
+@gray:                   #cccccc; // Container on gray background
+@gray-light:             #e6e6e5; // Container on white background
+@gray-lighter:           #f7f7f8; // Background
+
+@purple-highcontrast:    #281946; // Trends view day subnav text
+@purple-success:         #7950ea;
+@purple-blip:            #4E4490;
+@purple-medium:          #6078ff;
+@orange-alert:           #ffa70b;
+@red-error:              #ff3631;
+@red-light:              rgb(252, 123, 123);
+
+@blue-green:             #0b9eb3;
+@blue-green-light:       #12d3d8;
+@owned-account:          #b1eaf2;
+@owned-account-hover:    #81D7E4;
+
+@gray-text:              #545454;
+@gray-background:        #f2f2f2;
+@gray-title:             #808080;
+
+@gray-blue:              #281946; // Outline on chart buttons
+@light-blue:             #EEF5F9; // Fill on chart buttons
+
+// Modal Day
+@weekday: #3D9998;
+@weekend: #5DE8DE;
+
+@monday: @weekday;
+@tuesday: @weekday;
+@wednesday: @weekday;
+@thursday: @weekday;
+@friday: @weekday;
+@saturday: @weekend;
+@sunday: @weekend;
+
+// Scaffolding
+// ====================================
+
+@body-bg:                @gray-lighter;
+@text-color:             @gray-darker;
+
+@link-color:             @blue-green;
+@link-hover-color:       @blue-green-light;
+
+// Typography
+// ====================================
+
+@font-family-base:       "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-size-small:        14px;
+@font-size-base:         16px;
+@font-size-large:        25px;
+@font-size-small:        14px;
+@font-size-tiny:         12px;
+@line-height-base:       20px;
+
+// Spacing
+// ====================================
+
+@spacing-large:          40px;
+@spacing-base:           20px;
+@spacing-small:          10px;
+@spacing-tiny:           5px;
+
+// Notification states
+// ====================================
+
+@state-success-text:             @gray-darker;
+@state-success-bg:               #fff;
+@state-success-border:           @purple-success;
+
+@state-alert-text:               @gray-darker;
+@state-alert-bg:                 #fff;
+@state-alert-border:             @orange-alert;
+
+@state-error-text:               @gray-darker;
+@state-error-bg:                 #fff;
+@state-error-border:             @red-error;
+
+// Media queries breakpoints
+// ====================================
+
+// Medium screen / tablet
+@screen-md-min:              480px;
+
+// Large screen / desktop
+@screen-lg-min:              1020px;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-sm-max:              (@screen-md-min - 1);
+@screen-md-max:              (@screen-lg-min - 1);
+
+// Z-index master list
+// ====================================
+
+@zindex-notification:        1030;
+@zindex-overlay-background:  1040;
+@zindex-overlay:             1050;

@@ -1,0 +1,54 @@
+/**
+ * Copyright (c) 2014, Tidepool Project
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the associated License, which is identical to the BSD 2-Clause
+ * License as published by the Open Source Initiative at opensource.org.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the License for more details.
+ * 
+ * You should have received a copy of the License along with this program; if
+ * not, you can obtain one from Tidepool Project at tidepool.org.
+ */
+
+@nav-item-vertical-padding:   (@spacing-base/2);
+@nav-item-horizontal-padding: (@spacing-base/2);
+
+.nav-wrapper {
+  &:extend(.clearfix all);
+}
+
+.nav {
+  // Override default ul/ol
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &:extend(.clearfix all);
+
+  > li {
+    display: block;
+    float: left;
+
+    > a,
+    .nav-text {
+      display: block;
+      padding: @nav-item-vertical-padding @nav-item-horizontal-padding;
+    }
+  }
+}
+
+.nav-left {
+  float: left;
+
+  // Compensate for nav item padding, so text aligns with edge
+  margin-left: -@nav-item-horizontal-padding;
+}
+
+.nav-right {
+  float: right;
+
+  margin-right: -@nav-item-horizontal-padding;
+}
