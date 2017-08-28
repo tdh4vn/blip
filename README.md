@@ -170,7 +170,7 @@ For forms, we try as much as possible to "save optimistically", meaning when the
 
 ## Testing
 
-We use [Mocha](http://visionmedia.github.io/mocha/) with [Chai](http://chaijs.com/) for the test framework, [Sinon.JS](http://sinonjs.org/) and [Sinon-Chai](https://github.com/domenic/sinon-chai) for spy, stubs. [Karma](http://karma-runner.github.io/0.12/index.html) is our test runner, running currently just on [PhantomJS](http://phantomjs.org/) (headless WebKit browser).
+We use [Mocha](http://mochajs.org/) with [Chai](http://chaijs.com/) for the test framework, [Sinon.JS](http://sinonjs.org/) and [Sinon-Chai](https://github.com/domenic/sinon-chai) for spy, stubs. [Karma](http://karma-runner.github.io/0.12/index.html) is our test runner, running currently just on [PhantomJS](http://phantomjs.org/) (headless WebKit browser).
 
 To run the unit tests, use:
 
